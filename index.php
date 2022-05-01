@@ -1,40 +1,3 @@
-<?php
-
-    $server="localhost";
-    $username="root";
-    $password="";
-
-    $con=mysqli_connect($server,$username,$password);
-    if(!$con)
-    {
-        die("connection to database failed due to".mysqli_connect_error());
-    }
-
-    //echo "Successfully connected to the Database"
-    $email= $_REQUEST['email'];
-    $rollno= $_REQUEST['rollno'];
-    $departure= $_REQUEST['departure'];
-    $start= $_REQUEST['start'];
-    $end= $_REQUEST['end'];
-    $place= $_REQUEST['place'];
-    $reason= $_REQUEST['reason'];
-    $sql="INSERT INTO `leave_mgmt`.`appln` (`email`, `rollno`, `departure`, `start`, `end`, `place`, `reason`) VALUES 
-    ('$email', '$rollno', '$departure', '$start', '$end', '$place', 
-    '$reason');";
-    echo $sql;
-    if($con->query($sql)==true)
-    {
-        echo "Successfully Requested";
-    }
-    else{
-        echo "ERROR: $sql <br> $con->error";
-    }
-    $con->close();
-
-  // phpinfo();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -177,3 +140,40 @@
 </body>
 
 </html>
+
+<?php
+
+    $server="localhost";
+    $username="root";
+    $password="";
+
+    $con=mysqli_connect($server,$username,$password);
+    if(!$con)
+    {
+        die("connection to database failed due to".mysqli_connect_error());
+    }
+
+    //echo "Successfully connected to the Database"
+    $email= $_REQUEST['email'];
+    $rollno= $_REQUEST['rollno'];
+    $departure= $_REQUEST['departure'];
+    $start= $_REQUEST['start'];
+    $end= $_REQUEST['end'];
+    $place= $_REQUEST['place'];
+    $reason= $_REQUEST['reason'];
+    $sql="INSERT INTO `leave_mgmt`.`appln` (`email`, `rollno`, `departure`, `start`, `end`, `place`, `reason`) VALUES 
+    ('$email', '$rollno', '$departure', '$start', '$end', '$place', 
+    '$reason');";
+    echo $sql;
+    if($con->query($sql)==true)
+    {
+        echo "Successfully Requested";
+    }
+    else{
+        echo "ERROR: $sql <br> $con->error";
+    }
+    $con->close();
+
+  // phpinfo();
+
+?>
